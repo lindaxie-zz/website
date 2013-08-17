@@ -1,0 +1,40 @@
+Notes 
+
+web.rb = the CONTROLLER that controls the website
+	* written in ruby
+	* 'require' = include 
+	* 'erb :index' : refer to index.erb; this is a function erb( :index) and index.erb is where the html is 
+	* look into model(this is where you store your data), view, controller
+
+Terminal: 
+	* "ctrl c" to quit 
+	* 'foreman start' - to start running on localhost:5000 (by default)
+	* 'foreman -p 3000 start' (to set port)
+
+	
+img = icons and you can use css to get that portion of the image out 
+
+Procfile
+	* run by foreman (interprets the Procfile; allows you to run website how Heroku runs it so you know it works) and heroku(server) in order to run the ruby scripts which power your website 
+	* Procfile is a mechanism for declaring what commands are run by your application’s dynos on the Heroku platform.
+
+Gemfile
+	* the gems ~ libraries in C
+	* gem 'sinatra', '1.1.0' # helper for sending your website to different client browsers; version number
+	* gem 'thin' #includes 3 very useful libraries 
+
+	* bundler takes stuff from this file and it will download it for you
+	* bundle install - reads gemfile and installs all those gems listed
+
+Gemfile.lock 
+	 * gemfile.lock bundler will keep track of what gems are installed 
+	 * gemfile.lock keeps track of the dependencies of the gems 
+
+script.js
+	* where the Javascript that interacts with your website is written 
+
+index.erb
+	<!--this is where you write html for the website; and you can program Javascript into here while referencing to JS-->
+
+bootstrap.min.js
+	* bootstrap.js made smaller because everytime website is initally loaded, this file is accessed 

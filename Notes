@@ -1,10 +1,15 @@
 Notes 
 
+- command shift u to see source code    
+
 web.rb = the CONTROLLER that controls the website
 	* written in ruby
 	* 'require' = include 
 	* 'erb :index' : refer to index.erb; this is a function erb( :index) and index.erb is where the html is 
-	* look into model(this is where you store your data), view, controller
+	* look into 
+		1. model(this is where you store your data) : in the fb project this was the javascript 
+		2. view: HTML static image
+		3. controller: this controls how the view changes with respect to the models (in facebook hack, the controller was coded into the html (simple)); web.rb is the controller 
 
 Terminal: 
 	* "ctrl c" to quit 
@@ -32,6 +37,10 @@ Gemfile.lock
 
 script.js
 	* where the Javascript that interacts with your website is written 
+		- make sure JavaScript is enabled in chrome 
+		- can be written in the body or head 
+		- start with <script type="text/javascript"> ..</script>
+		- for external javascript files: <script src="filename"><\script>
 
 index.erb
 	<!--this is where you write html for the website; and you can program Javascript into here while referencing to JS-->

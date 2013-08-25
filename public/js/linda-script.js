@@ -2,7 +2,7 @@ $(function(){
 	//var content = $('#content') ;
 	//content.find('section:not(.active)').hide();
 
-	 $('.nav-items a').click(function(){
+	 $('.nav-items a').click(function(e){
 		var $this = $(this);
 
 		// Remove old content (by fading out)
@@ -12,31 +12,20 @@ $(function(){
 		//active_content.removeClass('active').hide();
 
 		// Remove selected from old menus, and add them to new one
-		var new_selected_id = $this.attr('href'); // #about
+		var new_selected_id = $this.attr('href'); // "#about"
 		console.log(new_selected_id);
 		var old_selected_menus = $('.nav-items a.selected');
 		console.log(old_selected_menus);
 		old_selected_menus.removeClass('selected');
 		$(new_selected_id).addClass('selected');
 
-		//  Insert new content (by fading in)
-		$(new_selected_id).addClass('active').show();
-
 		// Scroll to the correct position
+		var top = $(new_selected_id).offset().top;
+		$.scrollTo(top - 80 > 0 ? top - 80 : 0, 1000);
 
-		if (new_selected_id == #contact) {
-			setTimeout(function() {
-				$("html, body").animate({ scrollTop: $(document).height()-$(window).height() });
-				$.scrollTo('+=100px', 3000, { axis:'y' });
-			}, 2000);
-		}
-		else if (new_selected_id != #contact) {
-			setTimeout(function() {	
-				//$.scrollTo(new_selected_id);
-				//$.scrollTo('-=80px', 5000, { axis:'y' });
-			}, 2000);
-		}
-	})
+		window.location.href = window.location.origin + window.location.pathname + new_selected_id;
+		return false;
+	});
 
 	// Load page based on anchor/hash tag
 	 if(window.location.hash) {

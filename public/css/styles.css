@@ -1,58 +1,60 @@
 body {
 	font-family: "century gothic";
-	font-size: 16px;
 	background-color: #fff;
 }
 	.navbar {
-		height: 60px; 
+		height: 30px; 
 		border: none;
-		background: rgba(236, 237, 238, 0.7);
-
+		background: rgba(0, 0, 0, 0.7);
 	}
 	.navbar-brand { 
-		font-size: 55px; 
-		padding-left: 20px;
-		text-align: center;	
-		height: 60px; 
-		line-height: 30px; 
+		font-size: 65px; 
 		font-family: "century gothic"; 
-		letter-spacing: 10px;
+		letter-spacing: 15px;
+		color: #f5f5f5;
+		padding-left: 20px;
 	}
 	.navbar-nav {
-		float: right; 
-		font-size: 21px;
+		font-size: 19px;
 		font-family: "century gothic"; 
-		font-weight: 500; 
+		float: right; 
+		height: 30px; 
 	}
 	.navbar-nav>li>a {
-		line-height: 30px;
+		color: #f5f5f5;
+		height: 30px;
 	}
 	.navbar-nav>li>.dropdown-menu {
-		width: 178px;
+		width: 200px;
+		height: 30px;
 	}
 
 #home {
-	margin-top: 60px; 
-	font-size: 15px; 
 	background-color: #fff; 
-	line-height: 17px;
 }
 	.carousel-caption {
-	background: rgba(32, 31, 31, 0.5);
+	background: rgba(32, 31, 31, 0);
+	font-size: 22px;
+	line-height: 17px;
 	left: 0;
 	right: 0;
 	bottom: 0;
 	}
 	.carousel { 
-		background: rgba(32, 31, 31, 1);
+		background: rgba(255, 255, 255, 1);
 	}
-	.carousel-indicators {
+	.carousel-inner {
+		width: 100%; 
+		position: relative;
+	}
+	/*.carousel-indicators {
 		bottom: 0; 
 		height: 10px; 
-	}
+	}*/
 	.carousel .item img {
-		height: 600px;	
-		margin: auto;
+		display: block;
+		width: 100%;
+		height: auto;	
 	}
 
 #about {
@@ -62,7 +64,7 @@ body {
 	margin-top: 20px; 
 	margin-bottom: 20px; 
 	}
-	hr{
+	hr {
 		border-top: 2px solid #DBD7D7; 
 		margin-top: 40px;
 		margin-bottom: 40px;

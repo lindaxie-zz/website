@@ -21,7 +21,7 @@ $(function(){
 
 		// Scroll to the correct position
 		var top = $(new_selected_id).offset().top;
-		$.scrollTo(top - 70 > 0 ? top - 70 : 0, 800);
+		$.scrollTo(top - 60 > 0 ? top - 60 : 0, 800);
 
 		window.location.href = window.location.origin + window.location.pathname + new_selected_id;
 		return false;

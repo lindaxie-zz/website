@@ -24,7 +24,7 @@ $(function(){
 		$.scrollTo(top - 58 > 0 ? top - 58 : 0, 800);
 
 		window.location.href = window.location.origin + window.location.pathname + new_selected_id;
-		//return false;
+		return false;
 	});
 
 	// Load page based on anchor/hash tag

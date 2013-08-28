@@ -1,46 +1,53 @@
 body {
-	font-family: "century gothic";
+	font-family: "century gothic", sans-serif;
 	background-color: #fff;
 }
 	.navbar {
 		border: none;
-		background: rgba(0, 0, 0, 0.5);
+		background: rgba(150, 147, 147, 1);
 		min-height: 0px; 
 	}
-	.navbar-toggle {
-		margin: 4px 1px; 
-		border: rgba(0, 0, 0, 0.5); 
+	.navbar-1-collapse {
+		background:  rgba(150, 147, 147, 0.7);
 	}
+		.navbar-toggle {
+			margin: 4px 1px;  
+			border: rgba(0, 0, 0, 0.5); 
+		}
+			.navbar-toggle .icon-bar {
+				background-color: #fff; 
+			}
+
 
 	.navbar-default.navbar{
 		height: 40px;
 		width: auto; 
-		overflow: none; 
 	}
 	.navbar-collapse {
 		height: 40px; 
 		width: 100%; 
-		overflow: none; 
 		border-top: none; 
 	}
 	.navbar-brand { 
-		font-size: 50.5px; 
-		font-family: "century gothic"; 
+		height: 40px; 
+		font-size: 50.3px; 
+		font-family: "century gothic", sans-serif;
 		letter-spacing: 15px;
 		color: #f5f5f5;
-		max-height: 40px; 
 		padding-top: 10px; 
 		padding-bottom: 0;
 	}
 	.navbar-nav {
 		font-size: 18px; 
-		font-family: "century gothic"; 
+		font-family: "century gothic",sans-serif;
 		float: right; 
 	}
 	.navbar-nav>li>a {
 		color: #f5f5f5;
 		padding-top: 8px; 
+		height: 40px; 
 	}
+
 #home {
 	margin-top: 40px; 
 	background-color: #fff; 
@@ -100,7 +107,7 @@ body {
 		width: 300px; 
 	}
 	#contact-row {
-		font-size: 24px;
+		font-size: 20px;
 
 	}
 

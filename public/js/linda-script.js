@@ -20,7 +20,7 @@ $(function(){
 		console.log(parent.location.hash); 
 
 		var top = $(new_selected_id).offset().top;
-		$.scrollTo(top - 58 > 0 ? top - 58 : 0, 800);
+		$.scrollTo(top - 55 > 0 ? top - 55 : 0, 800);
 
 
 		//window.location.href = window.location.origin + window.location.pathname + new_selected_id;

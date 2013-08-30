@@ -22,6 +22,10 @@
 #home {
 	margin-top: 40px; 
 }
+#about {
+	margin-right: 10px; 
+	margin-left: 10px; 
+}
 	.lead {
 		font-size: 18px; 
 	}

@@ -1,0 +1,31 @@
+	.navbar-toggle {
+		margin: 4px 1px;  
+	}
+	.navbar-default.navbar{
+		height: 40px;
+	}
+	.navbar-collapse {
+		height: 40px; 
+	}
+	.navbar-brand { 
+		height: 40px; 
+		font-size: 36px; 
+		padding-top: 10px; 
+	}
+	.navbar-nav {
+		font-size: 16px; 
+	}
+	.navbar-nav>li>a {
+		height: 40px; 
+	}
+
+#home {
+	margin-top: 40px; 
+}
+	.lead {
+		font-size: 18px; 
+	}
+
+	#contact-row {
+			font-size: 18px;
+		}

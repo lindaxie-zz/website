@@ -22,6 +22,11 @@
 #home {
 	margin-top: 40px; 
 }
+	.container.marketing {
+		margin-left: 15px;
+		margin-right: 15px; 
+		min-width: 540px;
+	}
 	.lead {
 		font-size: 18px; 
 	}
@@ -29,3 +34,5 @@
 	#contact-row {
 			font-size: 18px;
 		}
+
+	

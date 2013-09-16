@@ -79,7 +79,10 @@ body {
 }
 	.container.marketing {
 	margin-top: 20px; 
-	margin-bottom: 0px; 
+	margin-bottom: 0px;
+	margin-left: 40px;
+	margin-right: 40px; 
+	max-width: 2000px;
 	}
 	hr {
 		border-top: 2px solid #DBD7D7; 

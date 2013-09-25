@@ -96,10 +96,12 @@ function loadShit(images_month) {
 <div id="fb-root"></div>
 <div id="user-info"></div>
 
-	<div id="wrapper">
+	<div id="header-front">
 		<h1 class="header-style">TopPics</h1>
 		<h2 class="header-style"> Check out the most liked pictures on your network!</h2>
 		<p class="header-style"><button id="fb-auth">Login</button></p>
+	</div>
+	<div id="wrapper">
 		<div id="leftpanel">
 			<img>
 <!-- 			<div>
@@ -113,9 +115,7 @@ function loadShit(images_month) {
 		</div>
 		<div id="rightpanel">
 			<!--
-			individual pictures (Linda, use a list *hint* *hint*
-			one picture with test to the right
-			set overflow-x:auto;  <--- DO THIS!!
+			
 			
 			-->
 		</div>
@@ -125,6 +125,7 @@ function loadShit(images_month) {
 			-->
 		</div>
 	</div>
+	
 
 	<script>
 window.fbAsyncInit = function() {
@@ -160,6 +161,11 @@ window.fbAsyncInit = function() {
     }
     return(sort(less).concat([pivot], sort(greater)));
   }
+
+var fade_out = function() {
+  $("#header-front").fadeOut().empty();
+}
+setTimeout(fade_out, 5000);
 
   function updateButton(response) {
     var button = document.getElementById('fb-auth');

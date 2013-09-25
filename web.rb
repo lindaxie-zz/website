@@ -1,10 +1,10 @@
 require 'sinatra' 
 
 get '/' do
-  erb :index
+ 	erb :index
 end
 
-get '/Linda' do
-	"is awesome" 
+get '/TopPics' do
+	erb :"/TopPics/TopPics" 
 end
 

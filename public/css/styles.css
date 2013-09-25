@@ -47,6 +47,14 @@ body {
 		padding-top: 12px; 
 		height: 50px; 
 	}
+	.navbar-nav>li>.dropdown-menu {
+		background-color: rgba(150, 147, 147, 0.9);
+		border: 0px; 
+		font-size: 18px;
+	}
+	.dropdown-menu>li>a {
+		color: #f5f5f5;
+	}
 
 #home {
 	margin-top: 50px; 
@@ -91,9 +99,15 @@ body {
 	}
 	.featurette-image.img-circle.pull-left {
 		margin-right: 30px; 
+		width: 30%; 
+		min-width: 300px; 
+		max-width: 400px;
 	}
 	.featurette-image.img-circle.pull-right {
 		margin-left: 30px; 
+		width: 30%; 
+		min-width: 300px; 
+		max-width: 400px;
 	}
 	.lead {
 		font-size: 20px; 

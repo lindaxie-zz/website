@@ -1,0 +1,296 @@
+<!doctype html>
+<html>
+<head>
+<style>
+body {
+	font-family: 'lucida grande', tahoma, verdana, arial, sans-serif;
+	padding: 0;
+	margin: 0;
+	height: 100%;
+	width: 100%;
+	font-size: 13px;
+}
+#wrapper {
+	margin: auto;
+	width: 1100px;
+	min-height: 95%;
+	margin-top: 20px;
+}
+/*#leftpanel, #rightpanel {
+	box-shadow: 0 1px 3px rgba(34,25,25,0.4);
+}*/
+#leftpanel {
+	width: 69%;
+	min-height: 750px;
+	float: left;
+}
+#leftpanel img {
+	position: fixed;
+	width: 48%;
+}
+#rightpanel {
+	width: 30%;
+	min-height: 750px;
+	float: right;
+}
+.thumbnailbox {
+	width: 100%;
+	height: 120px;
+	padding-bottom: 5px;
+	margin-bottom: 5px;
+	background: #ffffff;
+	border: 1px solid #d3d6db;
+	padding: 5px;
+}
+.thumbnailbox img {
+	max-height: 120px;
+}
+.informationbox {
+	padding-top: 5px;
+	width: 58%;
+	height: 100px;
+	float: right;
+}
+.imgwrap {
+	overflow: hidden;
+	text-align: center;
+	max-width: 120px;
+	max-height: 120px;
+	float: left;
+	border: 1px solid rgba(0, 0, 0, .1);
+}
+.like {
+	background-image: url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yP/r/ZztFj_dOML8.png);
+	background-position: 0px -52px;
+	background-repeat: no-repeat;
+	height: 13px !important;
+	width: 15px !important;
+	overflow: hidden;
+	display: inline-block;
+}
+</style>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" ></script>
+<script>
+function loadShit(images_month) {
+	var backgroundColor = "rgb(225, 233, 252)";
+	var input_information = [
+		{source_small:"https://fbcdn-sphotos-f-a.akamaihd.net/hphotos-ak-frc1/903399_470801266325835_1102468486_o.jpg", number_likes: 8,number_comments:9},
+		{source_small:"https://fbcdn-sphotos-c-a.akamaihd.net/hphotos-ak-ash3/539582_10152753695975457_1059200668_n.jpg", number_likes: 1,number_comments:2},
+		{source_small:"https://fbcdn-sphotos-f-a.akamaihd.net/hphotos-ak-frc1/903399_470801266325835_1102468486_o.jpg", number_likes: 2,number_comments:3},
+		{source_small:"https://fbcdn-sphotos-c-a.akamaihd.net/hphotos-ak-ash3/539582_10152753695975457_1059200668_n.jpg", number_likes: 3,number_comments:4}
+	]
+	var LEFT_KEY = 37;
+	var RIGHT_KEY = 39;
+	var current_image_index = 0;
+	var list_top_pictures = [];
+	var list_top_pic_likes = [];
+	var list_top_pic_comments = [];
+
+	for(index in images_month) {
+		list_top_pictures[index]=images_month[index].src_big;
+		list_top_pic_likes[index]=images_month[index].like_count;
+		list_top_pic_comments[index]=images_month[index].comment_count;
+	}
+	
+
+	var html = "";
+	for(index in list_top_pictures) {
+		html += '<div class="thumbnailbox"><div class="imgwrap"><img src="' + list_top_pictures[index] + '"></div><div class="informationbox"><div class="like"></div> ' + list_top_pic_likes[index] + ' people liked this. <br> <br>' + list_top_pic_comments[index] +' comments</div></div>';
+	}
+	$("#rightpanel").prepend($(html));
+
+	
+	$("#leftpanel img").attr('src', list_top_pictures[current_image_index]); //displaying the images in thumbboxes 
+	var thumbboxes = $("#rightpanel .thumbnailbox");
+	$(thumbboxes[current_image_index]).css("background-color", backgroundColor);
+
+
+	$(window).keydown(function(e){
+	
+		var thumbboxes = $("#rightpanel .thumbnailbox");
+		if(e.which == LEFT_KEY && current_image_index > 0) {
+			current_image_index--;
+		} else if(e.which == RIGHT_KEY && current_image_index < thumbboxes.length - 1) {
+			current_image_index++;
+		} else {
+			return;
+		}
+		console.log(current_image_index);
+		var src = $(thumbboxes[current_image_index]).children(".imgwrap").children("img").attr('src');
+		$("#leftpanel img").attr('src', src); //caused by defining
+		
+		
+		thumbboxes.each(function(index, element) { //while moving left/right, highlight the picture you are looking at
+			if($(element).children(".imgwrap").children("img")[0] == $(thumbboxes[current_image_index]).children(".imgwrap").children("img")[0]) {
+				$(element).css("background-color", backgroundColor);
+			} else {
+				$(element).css("background-color", "#FFFFFF");
+			}
+		});
+
+	});
+
+	$(".thumbnailbox img").click(function(e){ 
+		var thumbboxes = $("#rightpanel .thumbnailbox");
+
+		thumbboxes.each(function(index, element) { //while clicking on pictures, hightlight the picture you are looking at 
+			if($(element).children(".imgwrap").children("img")[0] == e.target) {
+				current_image_index = index;
+				$(element).css("background-color", backgroundColor);
+			} else {
+				$(element).css("background-color", "#FFFFFF");
+			}
+		});
+			
+		$("#leftpanel img").attr('src', $(e.target).attr('src')); //caused by click
+	})
+
+	function setMainPicture(index) {
+		var thumbox = $(thumbboxes[index]);
+		var src = thumbox.children("img").attr('src');
+		thumbox.css("background-color", "#FFF");
+	}
+}
+</script>
+</head>
+<body>
+
+<div id="fb-root"></div>
+<div id="user-info"></div>
+<p><button id="fb-auth">Login</button></p>
+
+	<div id="wrapper">
+		<div id="leftpanel">
+			<img>
+<!-- 			<div>
+				<div style="background-color:blue;"></div>
+<div style="background-color:rgb(15,99,30);"></div>
+ 
+<div style="background-color:#123456;"></div>
+<div style="background-color:#f11;"></div>
+					
+			</div> -->
+		</div>
+		<div id="rightpanel">
+			<!--
+			individual pictures (Linda, use a list *hint* *hint*
+			one picture with test to the right
+			set overflow-x:auto;  <--- DO THIS!!
+			
+			-->
+		</div>
+		<div id="bottom">
+			<!--
+			add more stuff
+			-->
+		</div>
+	</div>
+
+	<script>
+window.fbAsyncInit = function() {
+  FB.init({
+    appId: '444061909012734',
+    status: true,
+    cookie: true,
+    xfbml: true,
+    oauth: true
+  });
+  var nowDate = new Date(Date.now());
+  var images_day = new Array();
+  var images_week = new Array
+  images_month = new Array();
+  loaded=false;
+  var WEEK = 604800000;
+  var DAY = 86400000;
+  var MONTH = 2620800000;
+
+  function sort(array) {
+    if (array.length <= 1) {
+      return array;
+    }
+    var pivot = array.pop();
+    var less = new Array(),
+      greater = new Array();
+    for (var i = 0; i < array.length; i++) {
+      if (array[i].like_count <= pivot.like_count) {
+        less.push(pivot);
+      } else {
+        greater.push(pivot);
+      }
+    }
+    return(sort(less).concat([pivot], sort(greater)));
+  }
+
+  function updateButton(response) {
+    var button = document.getElementById('fb-auth');
+
+    if (response.authResponse) {
+      // user is already logged in and connected
+      var userInfo = document.getElementById('user-info');
+      //
+      FB.api({
+        method: 'fql.query',
+        query: 'SELECT src_big, like_info.like_count, comment_info.comment_count, created FROM photo WHERE aid IN (SELECT aid, name FROM album WHERE owner IN (SELECT uid2 FROM friend WHERE uid1=me()) ORDER BY modified DESC) AND created >' + ((Date.parse(nowDate) - MONTH)/1000) + 'ORDER BY like_info.like_count DESC '
+      },
+      function(response) {
+        //console.log('Enter\n');
+        images_month = response;
+        for (var i = 0; i < images_month.length; i++) {
+          images_month[i].like_count = images_month[i].like_info.like_count;
+          delete images_month[i].like_info;
+          images_month[i].comment_count = images_month[i].comment_info.comment_count;
+          delete images_month[i].comment_info;
+        }
+        
+        images_month=images_month.slice(0,20);
+        if(!loaded) {
+        loadShit(images_month);
+        loaded=true;
+    }
+        
+      });
+      button.onclick = function() {
+        FB.logout(function(response) {
+          var userInfo = document.getElementById('user-info');
+          userInfo.innerHTML = "";
+        });
+      };
+    } else {
+      //user is not connected to your app or logged out
+      button.innerHTML = 'Login';
+      button.onclick = function() {
+        FB.login(function(response) {
+          if (response.authResponse) {
+            var access_token = FB.getAuthResponse()['accessToken'];
+            console.log('Access Token = ' + access_token);
+            FB.api('/me', function(response) {
+              var userInfo = document.getElementById('user-info');
+              //userInfo.innerHTML =
+              //  '<img src="https://graph.facebook.com/' + response.id + '/picture" style="margin-right:5px"/>' + response.name;
+            }, {
+              scope: 'email,user_about_me,user_activities,user_likes,user_notes,user_photos,friends_likes,friends_photos,publish_actions'
+            });
+          } else {
+            //user cancelled login or did not grant authorization
+          }
+        }, {
+          scope: 'email,user_about_me,user_activities,user_likes,user_notes,user_photos,friends_likes,friends_photos,publish_actions'
+        });
+      }
+    }
+  }
+
+  // run once with current status and whenever the status changes
+  FB.getLoginStatus(updateButton);
+  FB.Event.subscribe('auth.statusChange', updateButton);
+};
+
+(function() {
+  var e = document.createElement('script');
+  e.async = true;
+  e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
+  document.getElementById('fb-root').appendChild(e);
+}());
+</script>
+</body>
+</html>
